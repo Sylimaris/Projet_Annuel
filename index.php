@@ -19,7 +19,7 @@
 
 <h2>Vous êtes client : Commandez vos produits frais avec beaucoup d'options!</h2>
 <br>
-<h2>Vendez vos lots aux consommateur au meilleur prix, en évitant des intermédiaires coûteux!</h2>
+<h2>Vous êtes agriculteur : Vendez vos lots aux consommateur au meilleur prix, en évitant des intermédiaires coûteux!</h2>
 <br><br>
 
 <center>
