@@ -38,7 +38,7 @@
 
   <button>Se connecter</button>
     <br><br><br>
-  <button>S'inscrire</button>
+  <a href="inscription.php"><button>S'inscrire</button></a>
     <br><br><br>
   <button>Mot de passe oublié </button>
     <br><br><br>
