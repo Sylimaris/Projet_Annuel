@@ -23,24 +23,27 @@
 <br><br>
 
 <center>
-<div>
-<form>
+
+<form action="connexion.php" method="post">
+  <div>
   Nom d'utilisateur:
     <br>
   <input type="text" name="username" value="">
+</div>
     <br>
-    <br>
+<div>
   Mot de passe:
     <br>
   <input type="password" name="password" value="">
-    <br><br>
-</form> 
+</div>
+    <br>
 
   <button>Se connecter</button>
+  </form> 
     <br><br><br>
   <a href="inscription.php"><button>S'inscrire</button></a>
     <br><br><br>
-  <button>Mot de passe oublié </button>
+  <a href="OubliMDP.php"><button>Mot de passe oublié </button></a>
     <br><br><br>
 </div>
 </center>
