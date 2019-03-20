@@ -1,5 +1,23 @@
 <?php
+  $error=null;
+
+  if (isset($_GET["error"]))  $error=$_GET["error"];
+  {
+    if ($error==1)
+    {
+      $error="Problème d'inscription";
+    }
+    elseif ($error==2)
+    {
+      $error="Il faut remplir tous les champs";
+    }
+    elseif ($error==3)
+    {
+      $error="ADRESSE MAIL DEJA UTILISEE";
+    }
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,12 +32,22 @@
 
 
 <body>
-<a href=index.php><img class="displayed" src="/Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
+<a href=index.php><img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
 
 <br><br><br>
 <h1>Page d'inscription</h1>
 
-
+<center>
+<span class="erreur">
+    <?php
+      if (isset($error))
+      {
+        echo '<img class="displayed" src="Pictures/attention.png" alt="Image erreur" style="object-position: center top; height="42" width="42">';
+        echo $error;
+      }
+    ?>
+</span>
+</center>
 
 <form action="enregistrement.php" method="post">
   <center>
@@ -71,7 +99,7 @@
 
 <div>
 <p>Adresse:</p>
-  <TEXTAREA class="texte" name="adresse" rows=4 cols=40>Entrez votre adresse (client) ou nom de ferme (vendeur)</TEXTAREA>
+  <TEXTAREA class="texte" name="adresse" rows=4 cols=40 >Entrez votre adresse (client) ou nom de ferme (vendeur)</TEXTAREA>
 </div>
 
 <br>
@@ -91,8 +119,8 @@
 
 <br><br>
 <center>
-  <div class="button">
-    <button>Valider l'inscription</button>
+  <div >
+  <input class="button" type="submit" name="valider" value="Valider l'inscription">
   </div>
 </center>
 
