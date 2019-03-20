@@ -20,55 +20,70 @@ $error = $usermail = $categ = $password = $prenom = $nom = $tel = $adresse ='';
 
     elseif ($categ == "vendeur")
     {
-        $requete="INSERT INTO `vendeur` (`IdVendeur`, `passwordVendeur`, `nomVendeur`, `prenomVendeur`, `nomFerme`, `mailVendeur`, `nbVentes`) VALUES (NULL, '$password', '$nom', '$prenom', '$adresse', '$usermail',  '0')";
-        $result = $idBase->query($requete);
-
-        if($result) #Affichage page HTML confirmant l'inscription
-        {
-            ?>
-                <!DOCTYPE html>
-                <html lang="fr">
-                <head>
-                    <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
-                    <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
-
-                    <title>Boucherie Order - COMPTE</title>
-                    <meta charset="UTF-8">
-                </head>
-
-                <body>
-                <a href=index.php><img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
-
-                <br><br><br>
-                    <h1>Compte vendeur créé!</h1>
-                    
-                <hr>
-                    <p class="badpage">
-                    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-                    </p>
-                </body>
-                </html>
-
-            <?php
-        }   #Fin affichage page HTML confirmant l'inscription
-        else
-        {
-            $error=1;
-        }
-    }
-    elseif ($categ == "acheteur") 
-    {
-        $requete1="SELECT COUNT(*) FROM client where mailClient='$usermail'";
+        $requete1="SELECT * FROM vendeur where mailVendeur='$usermail'";
         $result1 = $idBase->query($requete1);
        
-        if ($result1!=NULL)
+        if($result1->rowCount()>0)
         {
             $error=3;
             ?>
                 <META http-equiv="refresh" content="0.1; URL=./inscription.php?&error=<?php echo $error;?>">
             <?php
         }
-        
+        else
+        {
+            $requete2="INSERT INTO `vendeur` (`IdVendeur`, `passwordVendeur`, `nomVendeur`, `prenomVendeur`, `nomFerme`, `mailVendeur`, `nbVentes`) VALUES (NULL, '$password', '$nom', '$prenom', '$adresse', '$usermail',  '0')";
+            $result2 = $idBase->query($requete2);
+
+            if($result2) #Affichage page HTML confirmant l'inscription
+            {
+                ?>
+                    <!DOCTYPE html>
+                    <html lang="fr">
+                    <head>
+                        <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
+                        <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
+
+                        <title>Boucherie Order - COMPTE</title>
+                        <meta charset="UTF-8">
+                    </head>
+
+                    <body>
+                    <a href=index.php><img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
+
+                    <br><br><br>
+                        <h1>Compte vendeur créé!</h1>
+                        
+                    <hr>
+                        <p class="badpage">
+                        Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+                        </p>
+                    </body>
+                    </html>
+
+                <?php
+            }   #Fin affichage page HTML confirmant l'inscription
+            else
+            {
+                $error=1;
+            }
+        }
+    }
+    
+    
+    elseif ($categ == "acheteur") 
+    {
+        $requete1="SELECT * FROM client where mailClient='$usermail'";
+        $result1 = $idBase->query($requete1);
+       
+        if($result1->rowCount()>0)
+        {
+            $error=3;
+            ?>
+                <META http-equiv="refresh" content="0.1; URL=./inscription.php?&error=<?php echo $error;?>">
+            <?php
+        }
+
 
         else
         {

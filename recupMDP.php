@@ -32,7 +32,6 @@ $error = $nom = $categ = $username = $usersurname = $password = $userError = $pa
                     <h1>Votre mot de passe:</h1>
                     <h2>
                         <?php 
-                        
                         while ($donnees = $result->fetch())
                         {
                             echo "<TH> $donnees[passwordVendeur] </TH>";                         
