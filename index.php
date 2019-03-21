@@ -80,12 +80,12 @@
         <br>
       Mail utilisateur:
         <br>
-      <input type="text" name="mail">
+      <input type="text" name="mail" required>
         <br>
         <br>
       Mot de passe:
         <br>
-      <input type="password" name="password">
+      <input type="password" name="password" required>
         <br>
       
       <div>
