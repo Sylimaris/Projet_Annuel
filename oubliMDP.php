@@ -17,7 +17,7 @@
 <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
 <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
 
-<title>Boucherie Order - oubli MDP</title>
+<title>Mot de passe oublié - Boucherie Order</title>
 <meta charset="UTF-8">
 </head>
 

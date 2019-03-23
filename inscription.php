@@ -5,7 +5,7 @@
   {
     if ($error==1)
     {
-      $error="Problème d'inscription";
+      $error="Un problème est survenu lors de l'inscription";
     }
     elseif ($error==2)
     {
@@ -26,7 +26,7 @@
 <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
 <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
 
-<title>Boucherie Order - inscription</title>
+<title>Inscription - Boucherie Order</title>
 <meta charset="UTF-8">
 </head>
 
@@ -60,7 +60,7 @@
 
   <div>
     <p>Nom d'utilisateur:</p>
-    <input class="texte" type="text" name="nom" value="">
+    <input class="texte" type="text" name="nom" value="" required>
   </div>
 
 <br>
@@ -68,7 +68,7 @@
 
   <div>
   <p>Prénom d'utilisateur:</p>
-  <input class="texte" type="text" name="prenom" value="">
+  <input class="texte" type="text" name="prenom" value="" required>
   </div>
 
 <br>
@@ -77,7 +77,7 @@
 
   <div>
   <p>Mot de passe:</p>
-  <input class="texte" type="password" name="password" value="">
+  <input class="texte" type="password" name="password" value="" required>
   </div>
 
 <br>
@@ -85,21 +85,21 @@
 
   <div>
   <p>Mail:</p>
-  <input class="texte" type="email" name="mail" value="">
+  <input class="texte" type="email" name="mail" value="" required>
   </div>
 
 <br>
 
   <div>
     <p>Tel:</p>
-  <input class="texte" type="text" name="tel" value="">
+  <input class="texte" type="text" name="tel" value="" required>
   </div>
 
 <br>
 
 <div>
 <p>Adresse:</p>
-  <TEXTAREA class="texte" name="adresse" rows=4 cols=40 >Entrez votre adresse (client) ou nom de ferme (vendeur)</TEXTAREA>
+  <TEXTAREA class="texte" name="adresse" rows=4 cols=40 required>Entrez votre adresse (client) ou nom de ferme (vendeur)</TEXTAREA>
 </div>
 
 <br>

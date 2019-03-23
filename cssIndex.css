@@ -28,24 +28,22 @@ h2 {
   text-align: center;
  }
 
-.button {
-  	border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
+.link {
+  font-size: 150%; 
+  color: rgb(0, 204, 255); 
+  font-family: 'Lucida Sans';
+  text-align: center;
+  width:200px; 
+}
 
- }
+.link:hover {
+  background-color: #FFFF00; 
+  color: rgba(0, 0, 0, 0.603);
+}
+
+.link:active {
+  color: rgb(255, 0, 234);
+}
 
  .RAZ {
     border: 0;
@@ -74,6 +72,25 @@ h2 {
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+.button {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+}
+
 .button:hover {
     background-color: rgba(255, 125, 200, 1);
 }
@@ -86,10 +103,78 @@ h2 {
 .displayed {
     display: block;
     margin-left: auto;
-    margin-right: auto }
+    margin-right: auto 
+}
 
 .badpage {
   font-size: 75%;
   text-align: center;
 }
 
+.deco{
+  line-height: 2.5;
+  padding: 20px 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(10, 10, 10);
+  border-radius: 12px;
+  background: url(Pictures/saucisson.png) no-repeat;
+  background-color: rgba(177, 177, 173, 0.658);
+  background-position:center center;
+}
+
+.deco:hover {
+  border: 2px solid rgb(255, 251, 0);
+  background-color: rgba(236, 139, 11, 0.6);
+  color: rgb(0, 255, 64);
+  background: url(Pictures/saucisson.png) no-repeat;
+  background-position:center center;
+}
+
+.deco:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+              inset 2px 2px 3px rgba(255, 255, 255, 0.568);
+}
+
+.fixedHautDroite{
+  position: fixed;
+  top : 3%;
+  right: 3%;
+}
+
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 93%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: rgb(235, 41, 15);
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: grey; 
+  color: white;
+}
+
+
+/* paragrapheVendeurClient : passer à droite du menu */
+.PVC{
+  position:relative;
+  left:20%;
+}

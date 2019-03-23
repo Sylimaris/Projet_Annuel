@@ -9,31 +9,30 @@
     }
   }
 
-  if (isset($_POST['valider']))
-  {
-    
-    $password = htmlspecialchars($_POST['password']);
-    $mail = htmlspecialchars($_POST['mail']);
+    //AVANT UTILISATION DU CHAMP 'required' DANS LES FORMULAIRES
+  // if (isset($_POST['valider']))
+  // {
+  //   $password = htmlspecialchars($_POST['password']);
+  //   $mail = htmlspecialchars($_POST['mail']);
 
-    if ((empty($password)) and (empty($mail)))
-      $erreur = 'Tous les champs sont vides';
-    elseif (empty($mail))
-      $erreur = 'Champ mail vide';
-    elseif (empty($password))
-      $erreur = 'Champ password vide';
-    
-  }
+  //   if ((empty($password)) and (empty($mail)))
+  //     $erreur = 'Tous les champs sont vides';
+  //   elseif (empty($mail))
+  //     $erreur = 'Champ mail vide';
+  //   elseif (empty($password))
+  //     $erreur = 'Champ password vide';
+  // }
 
-  if ((isset($_POST['valider'])) and (!isset($erreur)))
-  {
-    session_start();
-    $_SESSION['mail'] = $_POST['mail'];
-    $_SESSION['password'] = $_POST['password'];
-    $_SESSION['categ'] = $_POST['categ'];
-    header("Location: connect.php");
-  }
-  else
-  {
+  // if ((isset($_POST['valider'])) and (!isset($erreur)))
+  // {
+  //   session_start();
+  //   $_SESSION['mail'] = $_POST['mail'];
+  //   $_SESSION['password'] = $_POST['password'];
+  //   $_SESSION['categ'] = $_POST['categ'];
+  //   header("Location: connect.php");
+  // }
+  // else
+  // {
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +40,7 @@
 
 <head>
   <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
-  <title>Boucherie Order</title>
+  <title>Accueil - Boucherie Order</title>
   <meta charset="UTF-8">
 </head>
 
@@ -61,11 +60,11 @@
 
   <span class="erreur">
     <?php
-      if (isset($erreur))
-      {
-        echo '<img class="displayed" src="Pictures/attention.png" alt="Image erreur" style="object-position: center top; height="42" width="42">';
-        echo $erreur;
-      }
+      // if (isset($erreur))
+      // {
+      //   echo '<img class="displayed" src="Pictures/attention.png" alt="Image erreur" style="object-position: center top; height="42" width="42">';
+      //   echo $erreur;
+      // }
       if (isset($error))
       {
         echo '<img class="displayed" src="Pictures/attention.png" alt="Image erreur" style="object-position: center top; height="42" width="42">';
@@ -75,7 +74,7 @@
   </span>
 
         
-    <form action="" method="post">
+    <form action="Connect.php" method="post">
         <br>
         <br>
       Mail utilisateur:
@@ -131,5 +130,4 @@
 </html>
 
 <?php
-  }
 ?>
