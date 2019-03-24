@@ -1,11 +1,19 @@
 <?php
-  $error=$erreur=null;
+  $error=$deco=null;
 
   if (isset($_GET["error"]))  $error=$_GET["error"];
   {
     if ($error==1)
     {
       $error="Nom d'utilisateur ou mot de passe incorrect ou catégorie erronnée<br>Connexion échouée..";
+    }
+  }
+
+  if (isset($_GET["deco"]))  $deco=$_GET["deco"];
+  {
+    if ($deco==1)
+    {
+      $deco="Vous êtes bien déconnectés! Merci de votre visite";
     }
   }
 
@@ -47,15 +55,27 @@
 
 <body>
   <img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;">
+  <center>
+  <br><br>
+  
+  <span class="erreur">
+    <?php
+      if (isset($deco))
+      {
+        echo '<img class="displayed" src="Pictures/deco.png" alt="Image erreur" style="object-position: center top; height="150" width="150">';
+        echo $deco;
+      }
+    ?>
+  </span>
+  <br>
 
-  <br><br><br>
 
   <h2>Vous êtes client : Commandez vos produits frais avec beaucoup d'options!</h2>
   <br>
   <h2>Vous êtes agriculteur : Vendez vos lots aux consommateur au meilleur prix, en évitant des intermédiaires coûteux!</h2>
   <br><br>
 
-  <center>
+  
   <div>
 
   <span class="erreur">
