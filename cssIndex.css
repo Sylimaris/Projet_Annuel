@@ -1,8 +1,21 @@
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
 body {
- background-color: grey; 
- font-family: 'Lucida Sans';
- font-size: 100%;
- }
+  background-color: grey; 
+  font-family: 'Lucida Sans';
+  font-size: 100%;
+	display : table;
+  width: 100%;
+  background: url(Pictures/mur_noir.jpg);
+  color:white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+footer {
+	display : table-row;
+	height: 100px; /* à titre d'exemple */
+}
 
 .erreur {
   color: yellow;  
@@ -22,7 +35,7 @@ h1 {
 
 h2 {
  font-size: 150%; 
- color: darkred; 
+ color: rgb(197, 30, 30); 
  padding-left: 15px;
  font-family: 'Lucida Sans';
   text-align: center;
@@ -117,19 +130,17 @@ h2 {
   font-size: 1rem;
   text-align: center;
   color: rgb(255, 255, 255);
-  border: 2px solid rgb(10, 10, 10);
+  border: 2px solid rgba(228, 22, 22, 0.664);
   border-radius: 12px;
   background: url(Pictures/saucisson.png) no-repeat;
-  background-color: rgba(177, 177, 173, 0.658);
+  background-color: rgba(255, 255, 255, 0.452);
+
   background-position:center center;
 }
 
 .deco:hover {
+  background-color: rgba(0, 0, 0, 0.568);
   border: 2px solid rgb(255, 251, 0);
-  background-color: rgba(236, 139, 11, 0.6);
-  color: rgb(0, 255, 64);
-  background: url(Pictures/saucisson.png) no-repeat;
-  background-position:center center;
 }
 
 .deco:active {
@@ -146,12 +157,14 @@ h2 {
 
 .menu {
   list-style-type: none;
+  top: 1%;
+  left: 1%;
   margin: 0;
   padding: 0;
   width: 15%;
   background-color: #f1f1f1;
   position: fixed;
-  height: 93%;
+  height: 75%;
   overflow: auto;
 }
 
@@ -168,7 +181,7 @@ li a.active {
 }
 
 li a:hover:not(.active) {
-  background-color: grey; 
+  background-color: rgb(77, 71, 71); 
   color: white;
 }
 
@@ -176,5 +189,30 @@ li a:hover:not(.active) {
 /* paragrapheVendeurClient : passer à droite du menu */
 .PVC{
   position:relative;
-  left:20%;
+  left:17%;
+  width:73%;
 }
+
+
+
+
+.table1 {
+  border: medium solid #ff0404;
+  border-collapse: collapse;
+  width: 50%;
+  }
+  .th1 {
+  font-family: monospace;
+  border: thin solid #fffb00;
+  width: 50%;
+  padding: 5px;
+  background-color: rgba(183, 186, 190, 0.658);
+  }
+  .td1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: thin solid #7c4600;
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  background-color: #a1a1a1;
+  }

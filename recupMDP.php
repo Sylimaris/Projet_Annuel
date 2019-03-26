@@ -46,10 +46,12 @@ $error = $nom = $categ = $username = $usersurname = $password = $userError = $pa
                 </center>
                 <br><br><br><br>
 
-                <hr>
-                    <p class="badpage">
-                    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-                    </p>
+                <footer>
+    <hr>
+    <p class="badpage">
+    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+    </p>
+</footer>
                 </body>
             </html>
 
@@ -97,12 +99,14 @@ $error = $nom = $categ = $username = $usersurname = $password = $userError = $pa
                 Faites attention à ne pas perdre de nouveau votre mot de passe
                 </span>
                 </center>
-            <br><br><br><br><br><br>
+            <br><br><br>
 
-                <hr>
-                <p class="badpage">
-                Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-                </p>
+            <footer>
+    <hr>
+    <p class="badpage">
+    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+    </p>
+</footer>
             </body>
         </html>
 

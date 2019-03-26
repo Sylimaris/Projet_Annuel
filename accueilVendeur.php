@@ -21,7 +21,8 @@
 
 
 <ul class="menu">
-  <li><a class="active" href=profil.php>Profil</a></li>
+  <li><a class="active" href=accueilVendeur.php>Accueil</a></li>
+  <li><a href=profil.php>Profil</a></li>
   <li><a href=commandes.php>Commandes</a></li>
   <li><a href=produits.php>Gérer vos produits</a></li>
   <li><a href=historique.php>Historique de vos ventes</a></li>
@@ -47,17 +48,14 @@
     <br><br><br><br><br><br>
     <p class="PVC">Class PVC, s'affiche bien à droite du menu</p>
     <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
+ 
 
+    <footer>
     <hr>
     <p class="badpage">
     Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
     </p>
+</footer>
 
   <?php 
     }
@@ -71,10 +69,12 @@
     <center><a href=index.php><p class="link">Retour à l'accueil</p></a></center>
     <br><br><br><br><br><br>
 
+    <footer>
     <hr>
     <p class="badpage">
     Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
     </p>
+</footer>
 
   <?php 
     }

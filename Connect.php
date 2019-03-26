@@ -17,6 +17,9 @@ $error = $nom = $prenom = '';
            $_SESSION['nom']=$donnees['nomVendeur'];
            $_SESSION['prenom']=$donnees['prenomVendeur'];  
            $_SESSION['login'] = true; 
+           $_SESSION['categ'] =$categ;
+           $_SESSION['mail']=$donnees['mailVendeur'];
+           $_SESSION['Id']=$donnees['IdVendeur'];
            header('LOCATION: accueilVendeur.php');
         }
         else
@@ -34,6 +37,9 @@ $error = $nom = $prenom = '';
             $_SESSION['nom']=$donnees['nomClient'];
             $_SESSION['prenom']=$donnees['prenomClient'];                      
             $_SESSION['login'] = true; 
+            $_SESSION['categ'] =$categ;
+            $_SESSION['mail']=$donnees['mailClient'];
+            $_SESSION['Id']=$donnees['IdClient'];
             header('LOCATION: accueilClient.php');
         }
         else

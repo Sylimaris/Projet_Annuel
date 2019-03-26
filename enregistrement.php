@@ -54,10 +54,12 @@ $error = $usermail = $categ = $password = $prenom = $nom = $tel = $adresse ='';
                     <br><br><br>
                         <h1>Compte vendeur créé!</h1>
                         
-                    <hr>
-                        <p class="badpage">
-                        Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-                        </p>
+                        <footer>
+    <hr>
+    <p class="badpage">
+    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+    </p>
+</footer>
                     </body>
                     </html>
 
@@ -109,10 +111,12 @@ $error = $usermail = $categ = $password = $prenom = $nom = $tel = $adresse ='';
                     <br><br><br>
                         <h1>Compte client créé</h1>
                         
-                    <hr>
-                        <p class="badpage">
-                        Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-                        </p>
+                        <footer>
+    <hr>
+    <p class="badpage">
+    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+    </p>
+</footer>
                     </body>
                     </html>
 

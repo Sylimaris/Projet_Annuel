@@ -3,7 +3,7 @@ session_start();
 
 try
 	{
-		$idBase = new PDO('mysql:host=localhost;dbname=bddboucherie;charset=utf8', 'root', '',
+		$idBase = new PDO('mysql:host=localhost;dbname=bddboucherie2;charset=utf8', 'root', '',
 		array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	}
 	catch (Exception $e)
