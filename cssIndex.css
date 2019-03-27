@@ -189,8 +189,8 @@ li a:hover:not(.active) {
 /* paragrapheVendeurClient : passer à droite du menu */
 .PVC{
   position:relative;
-  left:17%;
-  width:73%;
+  left:20%;
+  width:80%;
 }
 
 
@@ -199,20 +199,27 @@ li a:hover:not(.active) {
 .table1 {
   border: medium solid #ff0404;
   border-collapse: collapse;
-  width: 50%;
+  width: 80%;
   }
-  .th1 {
+  .tr1 {
   font-family: monospace;
-  border: thin solid #fffb00;
-  width: 50%;
+  border: thin solid #7c4600;
+  width: 80%;
   padding: 5px;
   background-color: rgba(183, 186, 190, 0.658);
   }
   .td1 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border: thin solid #7c4600;
-  width: 50%;
+  width: 15%;
   padding: 5px;
   text-align: center;
   background-color: #a1a1a1;
   }
+
+  .th1 {
+    border: thin solid #7c4600;
+    width: 15%;
+    padding: 5px;
+    text-align: center;
+    }

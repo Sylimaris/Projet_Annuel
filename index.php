@@ -17,7 +17,7 @@
     }
   }
 
-    //AVANT UTILISATION DU CHAMP 'required' DANS LES FORMULAIRES
+  //AVANT UTILISATION DU CHAMP 'required' DANS LES FORMULAIRES
   // if (isset($_POST['valider']))
   // {
   //   $password = htmlspecialchars($_POST['password']);

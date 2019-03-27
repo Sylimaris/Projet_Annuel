@@ -21,12 +21,14 @@
 
 
 <ul class="menu">
-  <li><a class="active" href=accueilVendeur.php>Accueil</a></li>
-  <li><a href=profil.php>Profil</a></li>
-  <li><a href=commandes.php>Commandes</a></li>
-  <li><a href=produits.php>Gérer vos produits</a></li>
-  <li><a href=historique.php>Historique de vos ventes</a></li>
-</ul>
+    <li><a href=accueilVendeur.php class="active">Accueil</a></li>
+    <li><a href=profil.php>Profil //TO DO : modif données</a></li>
+    <li><a href=commandes.php>Commandes //TO DO</a></li>
+    <li><a href=produits.php>Ajout d'un produit //TO DO: prix des autres du meme type</a></li>
+    <li><a href=Delproduit.php >Suppression d'un produit</a></li>
+    <li><a href=Modifproduit.php>Modification d'un produit //TO DO</a></li>
+    <li><a href=historique.php>Historique de vos ventes //TO DO</a></li>
+    </ul>
 
 <a href="deconnexion.php"><button class="deco fixedHautDroite">Déconnexion</button></a>
 
@@ -51,11 +53,11 @@
  
 
     <footer>
-    <hr>
-    <p class="badpage">
-    Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
-    </p>
-</footer>
+      <hr>
+      <p class="badpage">
+      Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+      </p>
+    </footer>
 
   <?php 
     }
