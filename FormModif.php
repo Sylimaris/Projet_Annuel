@@ -8,9 +8,11 @@
   {
     if ($error==1)
     {
-      $error="Un problème est survenu lors de l'ajout";
+      $error="Un problème est survenu lors de la modification";
     }
   }
+
+  $idModif= (isset($_POST['idModif'])) ? $_POST['idModif'] : NULL;
 ?>
 
 
@@ -21,7 +23,7 @@
 <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
 <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
 
-<title>Ajout produit - Boucherie Order</title>
+<title>Modification produit - Boucherie Order</title>
 <meta charset="UTF-8">
 </head>
 
@@ -34,15 +36,15 @@
 <a href=accueilVendeur.php><img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
 
 <br><br><br>
-<h1>Page d'ajout de produit</h1>
+<h1>Page de formulaire de modification du produit</h1>
 
 <ul class="menu">
     <li><a href=accueilVendeur.php>Accueil</a></li>
     <li><a href=profil.php>Profil</a></li>
     <li><a href=commandes.php>Commandes</a></li>
-    <li><a href=produits.php class="active">Ajout d'un produit</a></li>
+    <li><a href=produits.php >Ajout d'un produit</a></li>
     <li><a href=Delproduit.php >Suppression d'un produit</a></li>
-    <li><a href=Modifproduit.php>Modification d'un produit</a></li>
+    <li><a href=Modifproduit.php class="active">Modification d'un produit</a></li>
     <li><a href=historique.php>Historique de vos ventes</a></li>
     </ul>
 
@@ -57,11 +59,11 @@
         echo $error;
       }
     ?>
-    <p>Attention de ne pas poster de choses incohérentes, comme des ailes de boeuf par exemple!</p>
+    <p>Attention de ne pas ajouter des modifications incohérentes, comme des ailes de boeuf par exemple!</p>
 </span>
 </center>
 
-<form action="ajoutProd.php" method="post">
+<form action="ModifEffectuee.php" method="post">
     <center>
         <div>
         <input class="RAZ" TYPE="reset" value="Vider le formulaire d'ajout">
@@ -70,7 +72,7 @@
     </center>
 
     <br>
-    
+    <input type="hidden" name="idModif" value="<?php echo $idModif;?>" />
     <div>
         Animal:
           <select id="animal" name="animal">

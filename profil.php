@@ -43,7 +43,6 @@
     <ul class="menu">
       <li><a href=accueilClient.php>Accueil</a></li>
       <li><a class="active" href=profil.php>Profil</a></li>
-      <li><a href=recherche.php>Rechercher</a></li>
       <li><a href=historique.php>Historique de vos achats</a></li>
       <li><a href=panier.php>Mon Panier</a></li>
       <li><a href=achat.php>Finaliser Commande</a></li>
@@ -88,11 +87,13 @@
       echo '<p class="PVC">Nombre de ventes: '.$nbVentes.'</p>';
       echo '<p class="PVC">ID: '.$id.'</p>';  
       echo '<p class="PVC">Moyenne de vos notes sur 5: '.$moyenne.'</p>';
-      if ($moyenne="Aucune note")
+      
+      if ($moyenne=="Aucune note")
       {
-        $moyenne=0;
+        $moyenne=0.0;
       } 
-      if ($moyenne==5)
+
+      if ($moyenne==5.0)
       {
         echo '<div class="PVC"><img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
@@ -100,7 +101,7 @@
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;"></div>';
       }
-      elseif ($moyenne>=4)
+      elseif ($moyenne>=4.0)
       {
         echo '<div class="PVC"><img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
@@ -108,7 +109,7 @@
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;"></div>';
       }
-      elseif ($moyenne>=3)
+      elseif ($moyenne>=3.0)
       {
         echo '<div class="PVC"><img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
@@ -116,7 +117,7 @@
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;"></div>';
       }
-      elseif ($moyenne>=2)
+      elseif ($moyenne>=2.0)
       {
         echo '<div class="PVC"><img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
@@ -124,7 +125,7 @@
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;"></div>';
       }
-      elseif ($moyenne>=1)
+      elseif ($moyenne>=1.0)
       {
         echo '<div class="PVC"><img src="Pictures/etoile_pleine.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;">';
@@ -140,6 +141,9 @@
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;">';
         echo '<img src="Pictures/etoile_vide.png" alt="etoile" style="width: 15px;"></div>';
       }
+
+      echo '<a href="inscriptionModif.php"><button class="deco fixedModifProfil">Modifier Profil</button></a>';
+
     }
 
     elseif ($categ == "client") 
@@ -161,6 +165,7 @@
       echo '<p class="PVC">Téléphone: '.$tel.'</p>';
       echo '<p class="PVC">Adresse: '.$adresse.'</p>';   
       echo '<p class="PVC">Nombre de commandes: '.$nb.'</p>';
+      echo '<a href="inscriptionModif.php"><button class="deco fixedModifProfil">Modifier Profil</button></a>';
     }
   ?>
 

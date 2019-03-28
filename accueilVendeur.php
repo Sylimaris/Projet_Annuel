@@ -22,12 +22,12 @@
 
 <ul class="menu">
     <li><a href=accueilVendeur.php class="active">Accueil</a></li>
-    <li><a href=profil.php>Profil //TO DO : modif données</a></li>
+    <li><a href=profil.php>Profil</a></li>
     <li><a href=commandes.php>Commandes //TO DO</a></li>
-    <li><a href=produits.php>Ajout d'un produit //TO DO: prix des autres du meme type</a></li>
+    <li><a href=produits.php>Ajout d'un produit</a></li>
     <li><a href=Delproduit.php >Suppression d'un produit</a></li>
-    <li><a href=Modifproduit.php>Modification d'un produit //TO DO</a></li>
-    <li><a href=historique.php>Historique de vos ventes //TO DO</a></li>
+    <li><a href=Modifproduit.php>Modification d'un produit</a></li>
+    <li><a href=historique.php>Historique de vos ventes</a></li>
     </ul>
 
 <a href="deconnexion.php"><button class="deco fixedHautDroite">Déconnexion</button></a>
@@ -35,20 +35,34 @@
   <a href=accueilVendeur.php><img class="displayed" src="Pictures/Viande.png" alt="Image d'accueil" style="object-position: center top;"></a>
 
   <br>
-  <h1>Page Vendeur de <?php echo $_SESSION['prenom'].' '.$_SESSION['nom'];?></h1>
-
-  
-
-                    <!-- profil vendeur (avec notation) -->
-
-                    <!-- consulter commandes (accepter/refuser) -->
-
-                    <!-- consulter produits en ventes : MODIFIER / AJOUTER / SUPPRIMER -->
-
-                    <!-- consulter historique -->
+  <h1>Bonjour <?php echo $_SESSION['prenom'].' '.$_SESSION['nom'];?></h1>
 
     <br><br><br><br><br><br>
-    <p class="PVC">Class PVC, s'affiche bien à droite du menu</p>
+    <p class="PVC">
+    <?php
+        $day = date ('w');
+        $month = date('m');
+        $nd = date ('d');
+        $annee = date ('Y');
+        $heure = date ('H\:i');
+        $JoursSemaine = array("Dimanche ","Lundi ","Mardi ","Mercredi ","Jeudi ","Vendredi ","Samedi ");
+        $jour = $JoursSemaine[$day];
+        $Mois = array(
+              "01" => " Janvier ",
+              "02" => " Février ",
+              "03" => " Mars ",
+              "04" => " Avril ",
+              "05" => " Mai ",
+              "06" => " Juin ",
+              "07" => " Juillet ",
+              "08" => " Août ",
+              "09" => " Septembre ",
+              "10" => " Octobre ",
+              "11" => " Novembre ",
+              "12" => " Décembre ");
+          $mois = $Mois[$month];
+      echo 'Aujourd\'hui, nous sommes le ' .$jour .$nd .$mois .$annee. ' et il est '.$heure;?>
+      </p>
     <br><br><br><br><br><br>
  
 

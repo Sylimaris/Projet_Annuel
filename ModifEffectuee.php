@@ -14,6 +14,10 @@ require_once("config.php");
     $int_Fermier = intval(isset($_POST['Fermier'])) ? $_POST['Fermier'] : 0;
     $int_Bio = intval(isset($_POST['Bio'])) ? $_POST['Bio'] : 0;
     
+    
+    $idModif= (isset($_POST['idModif'])) ? $_POST['idModif'] : NULL;
+
+
     $code_type=$int_Bio+$int_Fermier+$int_Halal;
 
         if ($statut==true)
@@ -23,10 +27,10 @@ require_once("config.php");
             $MoyKG = $result1->fetch();
             $moyenne=$MoyKG['prixKGmoy'];
            
-            $requete2="INSERT INTO `produit` (`IdProduit`, `animal`, `partie`, `poids`, `prixKg`, `note`, `type`, `IdCommande`, `IdVendeur`) VALUES (NULL, '$animal', '$partie', '$poids', '$prixKG', NULL, '$code_type', '0', '$id')";
+            $requete2="UPDATE `produit` SET `animal` = '$animal', `partie` = '$partie', `poids` = '$poids', `prixKg` = '$prixKG', `type` = '$code_type' WHERE `produit`.`IdProduit` = '$idModif'";
             $result2 = $idBase->query($requete2);
 
-            if($result2) #Affichage page HTML confirmant l'ajout'
+            if($result2) #Affichage page HTML confirmant la modification
             {
                 ?>
                     <!DOCTYPE html>
@@ -35,7 +39,7 @@ require_once("config.php");
                         <link href="cssIndex.css" rel="stylesheet" media="all" type="text/css"> 
                         <link href="cssInscription.css" rel="stylesheet" media="all" type="text/css">
 
-                        <title>Produit ajouté! - Boucherie Order</title>
+                        <title>Produit modifié - Boucherie Order</title>
                         <meta charset="UTF-8">
                     </head>
 
@@ -46,9 +50,9 @@ require_once("config.php");
                     <li><a href=accueilVendeur.php>Accueil</a></li>
                     <li><a href=profil.php>Profil</a></li>
                     <li><a href=commandes.php>Commandes</a></li>
-                    <li><a href=produits.php class="active">Ajout d'un produit</a></li>
+                    <li><a href=produits.php >Ajout d'un produit</a></li>
                     <li><a href=Delproduit.php >Suppression d'un produit</a></li>
-                    <li><a href=Modifproduit.php>Modification d'un produit</a></li>
+                    <li><a href=Modifproduit.php class="active">Modification d'un produit</a></li>
                     <li><a href=historique.php>Historique de vos ventes</a></li>
                     </ul>
 
@@ -59,15 +63,15 @@ require_once("config.php");
                         <?php
                          if ($moyenne==NULL)
                          {
-                             $moyenne="<p class='PVC'>Vous êtes le premier à vendre ce produit</p>";
+                             $moyenne='<p class="PVC">Vous êtes le premier à vendre cette partie ('.$partie.') de cet animal ('.$animal.')</p>';
                              echo $moyenne;
                          } 
                          else
                          {
-                             echo "<p class='PVC'>Le prix moyen pour cette partie de $animal est de $moyenne euros par KG, si vous avez mis trop cher ou pas assez, n'hésitez pas à modifier votre annonce!</p>";
+                             echo "<p class='PVC'>Le prix moyen pour cette partie de $animal est de $moyenne euros par KG, si vous avez mis trop cher ou pas assez, n'hésitez pas à re-modifier votre annonce!</p>";
                          }
                         ?>
-                            <h1>Produit mis en vente!</h1>
+                            <h1>Produit modifié!</h1>
                             <img class="displayed" src="Pictures/pouce.png" alt="produit vendu" style="object-position: center; height="150" width="150">
                             <footer>
                             <hr>
