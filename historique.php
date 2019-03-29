@@ -112,7 +112,35 @@
     
     elseif ($categ == "client") 
     {
-        $requete1="SELECT * FROM produit AS p inner join commande as c ON p.IdCommande = c.IdCommande inner join client as cli ON c.IdClient = cli.IdClient WHERE IdClient = '$id'";
+        #$requete1="SELECT * FROM produit AS p inner join commande as c ON p.IdCommande = c.IdCommande inner join client as cli ON c.IdClient = cli.IdClient WHERE IdClient = '$id'";
+
+
+
+        $requete1="SELECT * FROM Commande WHERE validation=3 and IdClient=$id";
+        $req= $idBase->query($requete1);
+        $donnees = $req->fetchAll();
+        if (count($donnees) == 0) {
+            ?>
+            <p class="PVC erreur">Votre historique est vide!</p>
+        <?php 
+        }
+            else {
+        ?>
+        <div class="PVC">
+        <?php
+            echo"<table class='table1'><tr class='tr1'><th class='th1'>Numero de la commande</th><th class='th1'>Date du paiement</th><th class='th1'>Somme payé</th>";
+            foreach ($donnees as $donnee)
+            {
+                echo "<tr class='tr1'>";
+                    echo "<td class='td1'> $donnee[IdCommande] </td>";        
+                    echo "<td class='td1'> $donnee[datePaiement] </td>";
+                    echo "<td class='td1'> $donnee[prix] € </td>";
+                echo "</tr>";
+            }
+            echo"</table>";
+        ?>
+        </div>
+        <?php } 
 
 // Le client valide la commande et le système via le site envoie un message auprès de chaque
 // vendeur correspondant au produit que le client a signifié. Le système produira par la suite une
