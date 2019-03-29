@@ -185,7 +185,7 @@ if ($moy==NULL)
 
  if (isset($_POST['idProduit']))
  {
-     $sql4="SELECTIdCommande FROM Commande WHERE IdClient='$id'";
+     $sql4="SELECT IdCommande FROM Commande WHERE IdClient='$id' AND validation='0'";
      $req4= $idBase->query($sql4);
      $data4 = $req4->fetch();
      $idCommande=$data4['IdCommande'];
@@ -199,7 +199,7 @@ if ($moy==NULL)
          $idCommande=$data4['IdCommande'];
      }
 
-     $sql3="UPDATE Produit SET IdCommande = '$idCommande' WHERE IdProduit = '$_POST[idProduit]'";
+     $sql3="UPDATE Produit SET IdCommande = '$idCommande', Statut='1' WHERE IdProduit = '$_POST[idProduit]'";
      $req3= $idBase->query($sql3);
      $_POST['idProduit']=null;
      header('LOCATION: accueilClient.php');
@@ -211,7 +211,7 @@ if ($moy==NULL)
   <footer>
       <hr>
       <p class="badpage">
-      Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+      Projet annuel "Boucherie Order" en développement par Pierre-Baptiste COUGNENC et Thomas LEONARDON
       </p>
   </footer>
 
@@ -230,7 +230,7 @@ if ($moy==NULL)
       <footer>
       <hr>
       <p class="badpage">
-      Projet annuel "Boucherie Order" en développement par Pierre-baptiste COUGNENC et Thomas LEONARDON
+      Projet annuel "Boucherie Order" en développement par Pierre-Baptiste COUGNENC et Thomas LEONARDON
       </p>
       </footer>
 
