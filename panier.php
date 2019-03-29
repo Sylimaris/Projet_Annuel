@@ -144,14 +144,24 @@ $sql="SELECT animal, partie, poids, prixKg, type, nomFerme, Produit.IdVendeur, I
 			</form></td></tr>";
     }
    	echo"</table>";
+
+
+  $sql42="SELECT sum(prixKg*poids) as prix FROM Produit WHERE IdCommande=$idCommande";
+  $req42= $idBase->query($sql42);
+  $data42 = $req42->fetch();
+  $prixtotal=$data42['prix'];
+
+
+
     ?>
         </br>
 
         <form method='post' action='panier.php'>
         <?php
-        echo "<input type='hidden' name='valider_commande' value='$idCommande'>";
+        echo "<input type='hidden' name='valider_commande' value='$idCommande'>
+        
+        <input class='button' type='submit' name='submit' value='Valider la commande de $prixtotal €'>";
         ?>
-        <input class='button' type='submit' name='submit' value='Valider la commande'>
         </form>
 
   </div>
