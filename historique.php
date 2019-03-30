@@ -46,6 +46,7 @@
       <li><a href=historique.php class="active">Historique de vos achats</a></li>
       <li><a href=panier.php>Mon Panier</a></li>
       <li><a href=achat.php>Finaliser Commande</a></li>
+      <li><a href=note.php>Noter produits</a></li>
     </ul>
 <?php
       }
