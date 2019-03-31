@@ -20,15 +20,15 @@
   ?>
 
 
-<ul class="menu">
-    <li><a href=accueilVendeur.php class="active">Accueil</a></li>
-    <li><a href=profil.php>Profil</a></li>
-    <li><a href=commandes.php>Commandes //TO DO</a></li>
-    <li><a href=produits.php>Ajout d'un produit</a></li>
-    <li><a href=Delproduit.php >Suppression d'un produit</a></li>
-    <li><a href=Modifproduit.php>Modification d'un produit</a></li>
-    <li><a href=historique.php>Historique de vos ventes</a></li>
-    </ul>
+  <ul class="menu">
+      <li><a href=accueilVendeur.php class="active">Accueil</a></li>
+      <li><a href=profil.php>Profil</a></li>
+      <li><a href=commandes.php>Commandes</a></li>
+      <li><a href=produits.php>Ajout d'un produit</a></li>
+      <li><a href=Delproduit.php >Suppression d'un produit</a></li>
+      <li><a href=Modifproduit.php>Modification d'un produit</a></li>
+      <li><a href=historique.php>Historique de vos ventes</a></li>
+  </ul>
 
 <a href="deconnexion.php"><button class="deco fixedHautDroite">Déconnexion</button></a>
 

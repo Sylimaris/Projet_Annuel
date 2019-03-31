@@ -52,7 +52,7 @@ require_once("config.php");
         ?>
         <div class="PVC">
         <?php
-            echo"<table class='table1'><tr class='tr1'><th class='th1'>Animal</th><th class='th1'>Partie</th><th class='th1'>Poids en Kg</th><th class='th1'>Prix au Kg</th><th class='th1'>Supprimer</th>";
+            echo"<table class='table1'><tr class='tr1'><th class='th1'>Animal</th><th class='th1'>Partie</th><th class='th1'>Poids en Kg</th><th class='th1'>Prix au Kg</th><th class='th1'>Modifier</th>";
             foreach ($donnees as $donnee)
             {
                 echo "<tr class='tr1'>";

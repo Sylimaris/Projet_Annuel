@@ -51,10 +51,10 @@
   ?>
 
           <ul class="menu">
-            <li><a class="active" href=accueilClient.php>Accueil</a></li>
+            <li><a  href=accueilClient.php>Accueil</a></li>
             <li><a href=profil.php>Profil</a></li>
-            <li><a href=historique.php>Historique de vos achats  //TO DO CLIENT</a>
-            <li><a href=panier.php>Mon Panier</a></li>
+            <li><a href=historique.php>Historique de vos achats</a>
+            <li><a href=panier.php class="active">Mon Panier</a></li>
             <li><a href=achat.php>Finaliser Commande</a></li>
             <li><a href=note.php>Noter produits</a></li>
           </ul>
@@ -81,8 +81,7 @@ if($idCommande == NULL)
 {
   $sql51="INSERT INTO Commande (IdClient) VALUES ($id)";
   $req51= $idBase->query($sql51);
-  $data51 = $req51->fetch();
-  $idCommande=$data51['IdCommande'];
+  echo '<meta http-equiv="refresh" content="0;URL=panier.php">';
 }
 
 
@@ -103,10 +102,18 @@ $sql="SELECT animal, partie, poids, prixKg, type, nomFerme, Produit.IdVendeur, I
 	$req= $idBase->query($sql);
 
   echo "<div class='PVC'>";
-
+  if (count($req->fetchAll()) == 0) 
+  {
+    echo '<p class="erreur">Panier vide! Sélectionnez des articles!</p>';
+  }
+  else{
 	echo"<table class='table1'><tr class='tr1'><th class='th1'>Animal</th><th class='th1'>Partie</th><th class='th1'>Poids</th><th class='th1'>Prix au kilo</th><th class='th1'>Prix</th><th class='th1'>Type</th><th class='th1'>Ferme</th><th class='th1'>Supprimer produit</th>";
-    while ($donnees = $req->fetch())
+  
+  $req= $idBase->query($sql);
+  while ($donnees = $req->fetch())
     {
+     
+      
         echo "<tr class='tr1'>";
         echo "<td class='td1'> $donnees[animal]</td>";        
         echo "<td class='td1'> $donnees[partie]</td>";
@@ -143,7 +150,7 @@ $sql="SELECT animal, partie, poids, prixKg, type, nomFerme, Produit.IdVendeur, I
 				<input type='hidden' name='idProduit' value='$donnees[IdProduit]'>
 				<input class='button' type='submit' name='submit' value='Supprimer'>
 			</form></td></tr>";
-    }
+      }
    	echo"</table>";
 
 
@@ -168,6 +175,7 @@ $sql="SELECT animal, partie, poids, prixKg, type, nomFerme, Produit.IdVendeur, I
   </div>
 
     <?php
+    }
 
 }
 

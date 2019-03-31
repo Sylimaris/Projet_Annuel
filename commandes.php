@@ -65,7 +65,7 @@ require_once("config.php");
 
             echo '<p class="PVC erreur"> Commande annulée pour le produit sélectionné. Envoyez un mail à '.$mail.' si vous souhaitez préciser les raisons de votre annulation au client. Votre produit a été supprimé de la base car vous avez rejeté la commande.<p>';
         }
-        $sql="SELECT * FROM  produit, commande, client WHERE produit.IdCommande = commande.IdCommande and commande.IdClient = client.IdClient and idVendeur='$id' and produit.idCommande!='0' and commande.validation='0'";
+        $sql="SELECT * FROM  produit, commande, client WHERE produit.IdCommande = commande.IdCommande and commande.IdClient = client.IdClient and idVendeur='$id' and produit.statut='1' and commande.validation='1'";
         $req= $idBase->query($sql);
         $donnees = $req->fetchAll();
         if (count($donnees) == 0) {
@@ -100,24 +100,66 @@ require_once("config.php");
 
 
 
-
+                                    //////////////////////////////////////////////////////////////////////////////
+                                    //                Si le produit est accepté                                 //
+                                    //                On doit changer le statut du produit                      //
+                                    //                Et check si le statut global de la commande doit changer  //
+                                    //////////////////////////////////////////////////////////////////////////////
 
             if (isset($_POST['accepter'])) {
-                $idProd = $_POST['accepter'];
+                $test=false;
 
-//////////////////////////////////////////////////////////////////////////////
-//                Si le produit est accepté                                 //
-//                On doit changer le statut du produit                      //
-//                Et check si le statut global de la commande doit changer  //
-//                Si la commande n'avait que ce produit: supprimée          //
-//////////////////////////////////////////////////////////////////////////////
+                $idProd = $_POST['accepter'];
+                $sql="UPDATE produit SET statut = '2'  WHERE IdProduit =$idProd";
+                $req= $idBase->query($sql);
+
+                $sql2="SELECT IdCommande from produit  WHERE IdProduit =$idProd";
+                $req2= $idBase->query($sql2);
+                $IdCommande =$req2->fetch();
+                
+                // echo ($IdCommande[0]);
+                // foreach ($IdCommande as $IdCommandes)
+                // {
+                //     echo ($IdCommandes);
+                // }
+
+                $sql3="SELECT statut FROM produit WHERE IdCommande='$IdCommande[0]'";
+                $req3= $idBase->query($sql3);
+                $statuts = $req3->fetchAll();
+                
+                // foreach ($print as $statuts)
+                // {
+                //     echo ($print);
+                // }
+
+                $sql8="SELECT count(statut) from produit where IdCommande='$IdCommande[0]'";
+                $req8=$idBase->query($sql8);
+                $nbStatut=$req8->fetch();
+
+                // echo ($nbStatut[0]);
+
+                $statutTest=2;
+                $test=true;
+
+
+                /////////////////////////// ,PROB ICI
+                for ($i=0; $i<$nbStatut[0]; $i++){
+                    if($statutTest != $statuts[$i]["statut"])
+                    {
+                        $test=false;
+                    }
+
+                }
+                
+                if ($test==true)
+                {
+                    $sql4="UPDATE commande SET commande.validation =2 WHERE IdCommande ='$IdCommande[0]'";
+                    $req4= $idBase->query($sql4);
+                }
                 
 
-                $reqAccept="";
-                //$accept= $idBase->query($reqAccept);
-
-
-                ////////////////////////////
+                
+            echo '<meta http-equiv="refresh" content="0;URL=commandes.php">';
             }
 
 

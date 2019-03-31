@@ -9,7 +9,7 @@
   if (isset($_POST['payer_commande']))
     {
     	$today = date("y-m-d");
-		$sql2="UPDATE Commande SET validation=3, datePaiement= '$today', prix = (SELECT sum(prixKg*poids) FROM Produit WHERE Produit.IdCommande='$_POST[payer_commande]') where Commande.IdCommande='$_POST[payer_commande]'";
+		$sql2="UPDATE commande SET commande.validation=3, datePaiement= '$today', prix = (SELECT sum(prixKg*poids) FROM Produit WHERE Produit.IdCommande='$_POST[payer_commande]') where Commande.IdCommande='$_POST[payer_commande]'";
 		$req2= $idBase->query($sql2);
     	$_POST['payer_commande']=null;
     	header('LOCATION: achat.php');
@@ -35,11 +35,11 @@
   ?>
 
   <ul class="menu">
-            <li><a class="active" href=accueilClient.php>Accueil</a></li>
+            <li><a href=accueilClient.php>Accueil</a></li>
             <li><a href=profil.php>Profil</a></li>
-            <li><a href=historique.php>Historique de vos achats  //TO DO CLIENT</a>
+            <li><a href=historique.php>Historique de vos achats</a>
             <li><a href=panier.php>Mon Panier</a></li>
-            <li><a href=achat.php>Finaliser Commande</a></li>
+            <li><a href=achat.php class="active">Finaliser Commande</a></li>
             <li><a href=note.php>Noter produits</a></li>
           </ul>
 
@@ -63,7 +63,7 @@
 
 	if($idCommande==NULL)
 	{
-		echo"<h1>Votre commande n'a pas encore été validée par nos vendeurs"; 
+		echo'<p class="PVC erreur">Votre commande n\'a pas encore été validée par nos vendeur</p>'; 
 	}
 	else
 	{
@@ -84,7 +84,7 @@
 
 
     }
-    echo "</div>";
+  echo "</div>";
 	?>
 
 
@@ -107,10 +107,12 @@
     <center><a href=index.php><p class="link">Retour à l'accueil</p></a></center>
     <br><br><br><br><br><br>
 
-    <hr>
-    <p class="badpage">
-    Projet annuel "Boucherie Order" en développement par Pierre-Baptiste COUGNENC et Thomas LEONARDON
-    </p>
+    <footer>
+      <hr>
+      <p class="badpage">
+      Projet annuel "Boucherie Order" en développement par Pierre-Baptiste COUGNENC et Thomas LEONARDON
+      </p>
+      </footer>
 
   <?php 
     }

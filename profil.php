@@ -33,6 +33,7 @@
       <li><a href=Delproduit.php >Suppression d'un produit</a></li>
       <li><a href=Modifproduit.php>Modification d'un produit</a></li>
       <li><a href=historique.php>Historique de vos ventes</a></li>
+      
       </ul>
 <?php
       }
@@ -46,6 +47,7 @@
       <li><a href=historique.php>Historique de vos achats</a></li>
       <li><a href=panier.php>Mon Panier</a></li>
       <li><a href=achat.php>Finaliser Commande</a></li>
+      <li><a href=note.php>Noter produits</a></li>
     </ul>
 <?php
       }

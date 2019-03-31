@@ -8,10 +8,8 @@
 
     if (isset($_POST['valide_note']))
     {
-      echo "string";
       $note="'$_POST[notation]'";
       $sql4="UPDATE Produit SET note=$note WHERE IdProduit='$_POST[valide_note]'";
-      echo "$sql4";
       $req4= $idBase->query($sql4);
       header('LOCATION: note.php');
     }
@@ -36,12 +34,12 @@
   ?>
 
           <ul class="menu">
-            <li><a class="active" href=accueilClient.php>Accueil</a></li>
+            <li><a href=accueilClient.php>Accueil</a></li>
             <li><a href=profil.php>Profil</a></li>
-            <li><a href=historique.php>Historique de vos achats  //TO DO CLIENT</a>
+            <li><a href=historique.php>Historique de vos achats</a>
             <li><a href=panier.php>Mon Panier</a></li>
             <li><a href=achat.php>Finaliser Commande</a></li>
-            <li><a href=note.php>Noter produits</a></li>
+            <li><a href=note.php class="active">Noter produits</a></li>
           </ul>
 
 
@@ -57,12 +55,21 @@
 
 <?php 
 
-$sql1="SELECT * FROM Produit as p inner join Commande as c on p.IdCommande=c.IdCommande WHERE note is null and Statut ='3'and idClient=$id";
+$sql1="SELECT * FROM Produit as p inner join Commande as c on p.IdCommande=c.IdCommande WHERE note is null and statut ='2' and IdClient=$id and c.validation='3'";
 $req1= $idBase->query($sql1);
 
-echo "<div class='PVC'>";
+$testvide = $req1->fetchAll();
+if (count($testvide) == 0) {
+    ?>
+    <p class="PVC erreur">Vous n'avez aucun produit à évaluer!</p>
+<?php 
+}
 
+else {
+
+echo "<div class='PVC'>";
 echo"<table class='table1'><tr class='tr1'><th class='th1'>Animal</th><th class='th1'>Partie</th><th class='th1'>Poids</th><th class='th1'>Prix au Kilo</th><th class='th1'>Type</th><th class='th1'>Date du paiement</th><th class='th1'>Noter produit</th><th class='th1'>Valider</th>";
+
 while ($donnees = $req1->fetch())
     {
       echo "<tr class='tr1'>";
@@ -70,6 +77,8 @@ while ($donnees = $req1->fetch())
         echo "<td class='td1'> $donnees[partie]</td>";
         echo "<td class='td1'> $donnees[poids]Kg</td>";
         echo "<td class='td1'> $donnees[prixKg]€/Kg</td>";
+
+
         $datatype=$donnees['type'];
         $type="";
         if (intdiv($datatype,100)==1) {
@@ -84,21 +93,23 @@ while ($donnees = $req1->fetch())
           $type=$type."Halal ";
         }
         echo "<td class='td1'>$type</td>";
+
         echo "<td class='td1'> $donnees[datePaiement]</td>";
 
-        echo"<form method='post' action='note.php'>";
-        ?>
-        <td class='td1'> <input type="number" name="notation" value="notation" min="0" max="5" required></td>
-        <?php
+          echo"<form method='post' action='note.php'>";
+          ?>
+          <td class='td1'> <input type="number" name="notation" value="notation" min="0" max="5" required></td>
+          <?php
 
-        echo "<td class='td1'>
-        <input type='hidden' name='valide_note' value='$donnees[IdProduit]'>
-        <input class='button' type='submit' name='submit' value='valider'>
-      </form></td></tr>";
+          echo "<td class='td1'>
+          <input type='hidden' name='valide_note' value='$donnees[IdProduit]'>
+          <input class='button' type='submit' name='submit' value='valider'>
+          </form>
+        </td>
+      </tr>";
       echo "$donnees[IdProduit]";
     }
-      echo"</table>";
-
+  echo"</table>";
   echo "</div>";
 
 
@@ -114,6 +125,8 @@ while ($donnees = $req1->fetch())
 
   <?php 
     }
+  }
+
     else
     {
   ?>

@@ -25,7 +25,7 @@
           <ul class="menu">
             <li><a class="active" href=accueilClient.php>Accueil</a></li>
             <li><a href=profil.php>Profil</a></li>
-            <li><a href=historique.php>Historique de vos achats  //TO DO CLIENT</a>
+            <li><a href=historique.php>Historique de vos achats</a>
             <li><a href=panier.php>Mon Panier</a></li>
             <li><a href=achat.php>Finaliser Commande</a></li>
             <li><a href=note.php>Noter produits</a></li>
@@ -87,7 +87,7 @@
     <br>
     <br>
   </form>
-
+  <p class="erreur">Si le tableau est vide, c'est qu'aucun produit n'est en vente!</p>
   <br>
 
   <?php 
@@ -203,7 +203,8 @@ if ($moy==NULL)
      $sql3="UPDATE Produit SET IdCommande = '$idCommande', Statut='1' WHERE IdProduit = '$_POST[idProduit]'";
      $req3= $idBase->query($sql3);
      $_POST['idProduit']=null;
-     header('LOCATION: accueilClient.php');
+     echo '<meta http-equiv="refresh" content="0;URL=accueilClient.php">';
+
  }
      ?>
 
