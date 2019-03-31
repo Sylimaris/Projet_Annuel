@@ -57,7 +57,6 @@
 
 $sql1="SELECT * FROM Produit as p inner join Commande as c on p.IdCommande=c.IdCommande WHERE note is null and statut ='2' and IdClient=$id and c.validation='3'";
 $req1= $idBase->query($sql1);
-
 $testvide = $req1->fetchAll();
 if (count($testvide) == 0) {
     ?>
@@ -70,7 +69,8 @@ else {
 echo "<div class='PVC'>";
 echo"<table class='table1'><tr class='tr1'><th class='th1'>Animal</th><th class='th1'>Partie</th><th class='th1'>Poids</th><th class='th1'>Prix au Kilo</th><th class='th1'>Type</th><th class='th1'>Date du paiement</th><th class='th1'>Noter produit</th><th class='th1'>Valider</th>";
 
-while ($donnees = $req1->fetch())
+$reqBIS= $idBase->query($sql1);
+while ($donnees = $reqBIS->fetch())
     {
       echo "<tr class='tr1'>";
         echo "<td class='td1'> $donnees[animal]</td>";        
@@ -107,7 +107,6 @@ while ($donnees = $req1->fetch())
           </form>
         </td>
       </tr>";
-      echo "$donnees[IdProduit]";
     }
   echo"</table>";
   echo "</div>";
