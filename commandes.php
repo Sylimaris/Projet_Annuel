@@ -50,21 +50,62 @@ require_once("config.php");
 
             <!-- COMMANDES AU STADE RESERVE PAR LE CLIENT -->
         <?php
-        if (isset($_POST['decliner'])) {
-            $idProdSuppr = $_POST['decliner'];
+            if (isset($_POST['decliner'])) {
+                $idProdSuppr = $_POST['decliner'];
+                
+                // Récupération du mail client à prévenir
+                $sql='SELECT mailClient FROM produit inner join commande on produit.IdCommande = commande.IdCommande inner join client on commande.IdClient = client.IdClient where IdProduit='.$idProdSuppr.'';
+                $req= $idBase->query($sql);
+                $donnees = $req->fetch();
+                $mail=$donnees['mailClient'];
+
+                $sql12="SELECT IdCommande from produit  WHERE IdProduit =$idProdSuppr";
+                $req12= $idBase->query($sql12);
+                $IdCommande =$req12->fetch();
+
+                // Suppression du produit décliné (On part du principe qu'un vendeur déclinant un produit ne souhaite plus le vendre ou s'était trompé dans le produit)
+                $sql="DELETE FROM `produit` WHERE `produit`.`IdProduit` =$idProdSuppr";
+                $req2= $idBase->query($sql);
+
+                $sql3="SELECT statut FROM produit WHERE IdCommande='$IdCommande[0]'";
+                $req3= $idBase->query($sql3);
+                $statuts = $req3->fetchAll();
+
+                
+                $sql8="SELECT count(statut) from produit where IdCommande='$IdCommande[0]'";
+                $req8=$idBase->query($sql8);
+                $nbStatut=$req8->fetch();
+
+                // echo ($nbStatut[0]);
+
+                $statutTest=2;
+                $test=true;
+
+                for ($i=0; $i<$nbStatut[0]; $i++){
+                    if($statutTest != $statuts[$i]["statut"])
+                    {
+                        $test=false;
+                    }
+
+                }
+                
+                if ($test==true)
+                {
+                    $sql4="UPDATE commande SET commande.validation =2 WHERE IdCommande ='$IdCommande[0]'";
+                    $req4= $idBase->query($sql4);
+                }
+                
+                echo '<p class="PVC erreur"> Commande annulée pour le produit sélectionné. Envoyez un mail à '.$mail.' si vous souhaitez préciser les raisons de votre annulation au client. Votre produit a été supprimé de la base car vous avez rejeté la commande.<p>';
             
-            // Récupération du mail client à prévenir
-            $sql='SELECT mailClient FROM produit inner join commande on produit.IdCommande = commande.IdCommande inner join client on commande.IdClient = client.IdClient where IdProduit='.$idProdSuppr.'';
-            $req= $idBase->query($sql);
-            $donnees = $req->fetch();
-            $mail=$donnees['mailClient'];
-
-            // Suppression du produit décliné (On part du principe qu'un vendeur déclinant un produit ne souhaite plus le vendre ou s'était trompé dans le produit)
-            $sql="DELETE FROM `produit` WHERE `produit`.`IdProduit` =$idProdSuppr";
-            $req2= $idBase->query($sql);
-
-            echo '<p class="PVC erreur"> Commande annulée pour le produit sélectionné. Envoyez un mail à '.$mail.' si vous souhaitez préciser les raisons de votre annulation au client. Votre produit a été supprimé de la base car vous avez rejeté la commande.<p>';
-        }
+            }
+        
+        
+        
+        
+        
+        
+        
+        
         $sql="SELECT * FROM  produit, commande, client WHERE produit.IdCommande = commande.IdCommande and commande.IdClient = client.IdClient and idVendeur='$id' and produit.statut='1' and commande.validation='1'";
         $req= $idBase->query($sql);
         $donnees = $req->fetchAll();
